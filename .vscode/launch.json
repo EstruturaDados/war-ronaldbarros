@@ -1,0 +1,27 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "GCC/GDB Debug & Launch (WSL)",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${fileDirname}/${fileBasenameNoExtension}", // 1. Caminho para o executável
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false, // Usa o terminal interno do VS Code
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/gdb", // 2. O caminho padrão do GDB no WSL/Linux
+            "setupCommands": [
+                {
+                    "description": "Enable pretty printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            // 3. Este é o link para a compilação no tasks.json
+            "preLaunchTask": "C/C++: gcc-12 build active file" 
+        }
+    ]
+}
